@@ -10,4 +10,16 @@ export const themes = {
     Black02: '#252525', //
     White: '#FFFFFF',
   },
+  fontWeights: {
+    normal: 'normal',
+    thin: '100',
+    ultraLight: '200',
+    light: '300',
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    heavy: '800',
+    black: '900',
+  },
 };
