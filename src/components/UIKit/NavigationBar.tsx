@@ -1,12 +1,15 @@
 import arrowLeft from '@assets/icons/icon_arrow-left.png';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 
 function NavigationBar() {
+  const router = useRouter();
+  const handleOnClickBackBtn = () => router.back();
   return (
     <Container>
-      <BackButton>
+      <BackButton onClick={handleOnClickBackBtn}>
         <Image alt="My Image" height={24} src={arrowLeft} width={24} />
       </BackButton>
     </Container>
