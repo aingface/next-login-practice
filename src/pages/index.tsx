@@ -1,11 +1,23 @@
-import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 
-const Home: NextPage = () => {
+function Home() {
+  const router = useRouter();
+  const isLoggedIn = false;
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('./notifications');
+    } else {
+      router.push('./login');
+    }
+  }, [isLoggedIn, router]);
+
   return (
     <>
-      <span>블루앤트 사전과제</span>
+      <span>리다이렉팅....</span>
     </>
   );
-};
+}
 
 export default Home;
