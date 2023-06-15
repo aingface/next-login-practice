@@ -9,11 +9,7 @@
     "plugin:@typescript-eslint/eslint-recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "eslint-plugin-simple-import-sort",
-    "import"
-  ],
+  "plugins": ["@typescript-eslint", "eslint-plugin-simple-import-sort", "import"],
   "rules": {
     "prettier/prettier": [
       "warn",
