@@ -6,6 +6,7 @@ export const themes = {
     Gray02: '#E9E9E9', //place holder
     Gray07: '#999999', //text
     Gray03: '#BCBCBC', //place holder, input field border
+    Gray04: '#EFEFEF', //Navigator borderBottom Color
     Red: '#E65052',
     Black01: '#000000', //text
     Black02: '#252525', //
