@@ -40,6 +40,10 @@ function LogIn() {
     setPasswordInput(event.target.value);
   };
 
+  const handleOnClickSignUp = () => {
+    router.push('./termsAndConditions');
+  };
+
   const onClickLogIn = async () => {
     const inputValue = {
       email: emailInput,
@@ -107,7 +111,11 @@ function LogIn() {
         >
           <span>로그인하기</span>
         </AuthButton>
-        <AuthButton backgroundColor={'transparent'} color={themes.colors.PrimaryPurple09}>
+        <AuthButton
+          backgroundColor={'transparent'}
+          color={themes.colors.PrimaryPurple09}
+          onClick={handleOnClickSignUp}
+        >
           <span>이메일로 가입하기</span>
         </AuthButton>
       </AuthButtonWrapper>
