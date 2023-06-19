@@ -21,8 +21,8 @@ export default NavigationBar;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  height: 20vh;
-  padding: 5vw;
+  height: 15vh;
+  width: 100vw;
 `;
 
 const BackButton = styled.button`

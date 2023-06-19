@@ -2,15 +2,36 @@ import logo from '@assets/logos/logo.png';
 import NavigationBar from '@components/UIKit/NavigationBar';
 import { themes } from '@styles/themes';
 import Image from 'next/image';
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
+
+import mockData from '../../public/mock-data.json';
 
 interface AuthButtonProps {
   backgroundColor?: string;
-  // 다른 프로퍼티들도 필요한 경우 여기에 추가
 }
 
 function LogIn() {
+  const onClickLogIn = () => {};
+
+  const [emailInput, setEmailInput] = useState<string>('');
+  const [passwordInput, setPasswordInput] = useState<string>('');
+
+  const handleEmailInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmailInput(event.target.value);
+  };
+
+  const handlePassWordInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setPasswordInput(event.target.value);
+  };
+
+  const errorMessage = () => {
+    if (emailInput && passwordInput) {
+      return <ErrorMessage>일치하는 이메일과 비밀번호 조합이 없습니다.</ErrorMessage>;
+    }
+    return <div></div>;
+  };
+
   return (
     <Wrapper>
       <NavigationBar />
@@ -25,12 +46,26 @@ function LogIn() {
         </span>
       </Description>
       <LogInFormWrapper>
-        <InputFeild placeholder="이메일을 입력해주세요." type="email" />
-        <InputFeild placeholder="비밀번호를 입력해주세요." type="password" />
-        {/* <ErrorMessage>일치하는 이메일과 비밀번호 조합이 없습니다.</ErrorMessage> */}
+        <InputFeild
+          placeholder="이메일을 입력해주세요."
+          type="email"
+          value={emailInput}
+          onChange={handleEmailInputChange}
+        />
+        <InputFeild
+          placeholder="비밀번호를 입력해주세요."
+          type="password"
+          value={passwordInput}
+          onChange={handlePassWordInputChange}
+        />
+        {errorMessage()}
       </LogInFormWrapper>
       <AuthButtonWrapper>
-        <AuthButton backgroundColor={themes.colors.PrimaryPurple09} color={themes.colors.White}>
+        <AuthButton
+          backgroundColor={themes.colors.PrimaryPurple09}
+          color={themes.colors.White}
+          onClick={onClickLogIn}
+        >
           <span>로그인하기</span>
         </AuthButton>
         <AuthButton backgroundColor={'transparent'} color={themes.colors.PrimaryPurple09}>
