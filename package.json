@@ -6,7 +6,8 @@
     "build": "next build && dist-size .next/",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "server": "json-server-auth --watch ./public/mock-data.json --port 3333"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
@@ -39,6 +40,8 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.0",
     "jest": "28.1.0",
+    "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0",
     "postcss": "^8.4.13",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.4.1",
