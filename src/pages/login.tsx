@@ -1,33 +1,72 @@
 import logo from '@assets/logos/logo.png';
 import NavigationBar from '@components/UIKit/NavigationBar';
 import { themes } from '@styles/themes';
+import axios from 'axios';
+import jwt from 'jsonwebtoken';
 import Image from 'next/image';
-import React, { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
-
-import mockData from '../../public/mock-data.json';
-
 interface AuthButtonProps {
   backgroundColor?: string;
 }
 
 function LogIn() {
-  const onClickLogIn = () => {};
-
+  const router = useRouter();
   const [emailInput, setEmailInput] = useState<string>('');
   const [passwordInput, setPasswordInput] = useState<string>('');
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [cookies, setCookie, removeCookie] = useCookies();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('./notice');
+    }
+  }, [isLoggedIn]);
+
+  const validateEmail = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsEmailValid(emailRegex.test(emailInput));
+  };
 
   const handleEmailInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmailInput(event.target.value);
+    validateEmail();
   };
 
   const handlePassWordInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPasswordInput(event.target.value);
   };
 
+  const onClickLogIn = async () => {
+    const inputValue = {
+      email: emailInput,
+      password: passwordInput,
+    };
+
+    try {
+      const result = await axios.post('http://localhost:3333/login', inputValue);
+      console.log(result);
+
+      const token = result.data.accessToken;
+
+      const verified = jwt.verify(token, 'blue_ant');
+
+      setCookie('verified-accessToken', verified, { path: '/' });
+
+      if (result.status == 200) {
+        setIsLoggedIn(true);
+      }
+    } catch (error) {
+      // console.log('🔥🔥🔥', error);
+    }
+  };
+
   const errorMessage = () => {
-    if (emailInput && passwordInput) {
-      return <ErrorMessage>일치하는 이메일과 비밀번호 조합이 없습니다.</ErrorMessage>;
+    if (emailInput && !isEmailValid) {
+      return <ErrorMessage>이메일 형식이 맞지 않습니다.</ErrorMessage>;
     }
     return <div></div>;
   };
