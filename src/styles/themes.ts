@@ -7,6 +7,7 @@ export const themes = {
     Gray07: '#999999', //text
     Gray03: '#BCBCBC', //place holder, input field border
     Gray04: '#EFEFEF', //Navigator borderBottom Color
+    Gray06: '#BCBCBC', //악관 전체 동의하기
     Red: '#E65052',
     Black01: '#000000', //text
     Black02: '#252525', //
