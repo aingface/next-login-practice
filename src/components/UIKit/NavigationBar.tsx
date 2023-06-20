@@ -58,6 +58,9 @@ const BackButton = styled.button`
   background-color: transparent;
   border: transparent;
   box-shadow: none;
+  position: absolute;
+  left: 1rem;
+
   &:active {
     /* 눌렸을 때의 스타일 지정 */
     /* 예: 배경색 변경, 박스 그림자 추가 등 */
