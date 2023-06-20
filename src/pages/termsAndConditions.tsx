@@ -96,6 +96,13 @@ function TermsAndConditions() {
     toggleIsMarketingAgree();
   };
 
+  const isRequiredConditionsMet = () => {
+    if (isPolicyAgree && isLocationAgree && isPrivacyAgree) {
+      return true;
+    }
+    return false;
+  };
+
   const checkCircleSwitch = () => {
     if (isAgreeAll) {
       return <Image alt="My logo" height={22} src={checkCircleGreen} width={22} />;
@@ -162,7 +169,11 @@ function TermsAndConditions() {
           onClickCheckbox={onClickMarketingAgree}
         />
       </DisclosureWrapper>
-      <FooterButton isNextPageEnabled={false} title="확인하기" onClickButton={handleOnClickNext} />
+      <FooterButton
+        isNextPageEnabled={isRequiredConditionsMet()}
+        title="확인하기"
+        onClickButton={handleOnClickNext}
+      />
     </Container>
   );
 }
