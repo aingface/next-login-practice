@@ -7,6 +7,7 @@ export const themes = {
     Gray07: '#999999', //text
     Gray03: '#BCBCBC', //place holder, input field border
     Gray04: '#EFEFEF', //Navigator borderBottom Color
+    Gray05: '#D7D7D7', //하단 버튼 글씨 색
     Gray06: '#BCBCBC', //악관 전체 동의하기
     Gray10: '#434343', //드롭다운 패널 글씨 색
     Red: '#E65052',
