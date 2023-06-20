@@ -141,9 +141,8 @@ const DropdownButton = styled.button`
 `;
 
 const PanelWrapper = styled.div`
-  /* background-color: ${(props) => props.theme.colors.Gray01}; */
+  background-color: ${(props) => props.theme.colors.Gray01};
   color: ${(props) => props.theme.colors.Gray10};
-  background-color: #c3cca2;
 `;
 
 const PanelTitle = styled.p`

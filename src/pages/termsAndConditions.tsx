@@ -183,8 +183,7 @@ export default TermsAndConditions;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color: ${(props) => props.theme.colors.Gray01}; */
-  background-color: #c3cca2;
+  background-color: ${(props) => props.theme.colors.Gray01};
   width: 100%;
   height: 100vh;
   min-height: 100vh;
