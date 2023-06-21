@@ -27,7 +27,7 @@ function BirthInput({
   setMonth = () => {},
   setDay = () => {},
 }: BirthInputProps) {
-  const handleOnChangeYear = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleOnChangeYear = (event: React.ChangeEvent<HTMLInputElement>) => {
     const yearInputValue = event.target.value;
     const formattedYearValue = Number(yearInputValue.slice(0, 4));
 
@@ -37,7 +37,7 @@ function BirthInput({
       setYear(formattedYearValue);
     }
   };
-  const handleOnChangeMonth = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleOnChangeMonth = (event: React.ChangeEvent<HTMLInputElement>) => {
     const monthInputValue = event.target.value;
     const formattedMonthValue = Number(monthInputValue.slice(0, 2));
 
@@ -47,7 +47,7 @@ function BirthInput({
       setMonth(formattedMonthValue);
     }
   };
-  const handleOnChangeDay = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleOnChangeDay = (event: React.ChangeEvent<HTMLInputElement>) => {
     const dayInputValue = event.target.value;
     const formattedDayValue = Number(dayInputValue.slice(0, 2));
 
