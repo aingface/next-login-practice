@@ -4,13 +4,15 @@ interface signInUserInfomationState {
   year: number | null;
   month: number | null;
   day: number | null;
-  email: string | null;
+  emailID: string | null;
+  emailDomain: string | null;
   password: string | null;
 
   setYear: (yearInput: number) => void;
   setMonth: (monthInput: number) => void;
   setDay: (dayInput: number) => void;
-  setEmail: (emailInput: string) => void;
+  setEmailID: (emailIDInput: string) => void;
+  setEmailDomain: (emailDomainInput: string) => void;
   setPassword: (passwordInput: string) => void;
 }
 
@@ -18,7 +20,8 @@ const signInUserInfomationStore = create<signInUserInfomationState>()((set) => (
   year: null,
   month: null,
   day: null,
-  email: null,
+  emailID: null,
+  emailDomain: null,
   password: null,
 
   setYear: (yearInput: number) =>
@@ -33,9 +36,14 @@ const signInUserInfomationStore = create<signInUserInfomationState>()((set) => (
     set(() => ({
       day: dayInput,
     })),
-  setEmail: (emailInput: string) =>
+  setEmailID: (emailIDInput: string) =>
     set(() => ({
-      email: emailInput,
+      emailID: emailIDInput,
+    })),
+
+  setEmailDomain: (emailDomainInput: string) =>
+    set(() => ({
+      emailDomain: emailDomainInput,
     })),
   setPassword: (passwordInput: string) =>
     set(() => ({
