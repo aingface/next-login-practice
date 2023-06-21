@@ -35,7 +35,7 @@ const Container = styled.div<ContainerProps>`
   flex-direction: row;
   padding-top: 7vh;
   padding-bottom: 1vh;
-  width: 100vw;
+  width: 100%;
   border-bottom: 1px solid ${(props) => (props.isBorderBottom ? props.theme.colors.Gray04 : 'none')};
 `;
 

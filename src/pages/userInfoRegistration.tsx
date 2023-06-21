@@ -87,5 +87,5 @@ const Container = styled.div`
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.Gray01};
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;

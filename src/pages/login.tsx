@@ -59,6 +59,8 @@ function LogIn() {
       const token = result.data.accessToken;
       const verified = jwt.verify(token, 'blue_ant');
       setCookie('verified-accessToken', verified, { path: '/' });
+
+      console.log('사라랄');
     } catch (error) {
       // console.log('🔥🔥🔥', error);
     }
@@ -72,8 +74,8 @@ function LogIn() {
   };
 
   return (
-    <Wrapper>
-      <NavigationBar />
+    <Container>
+      <NavigationBar isBorderBottom={false} />
       <LogoBox>
         <Image alt="My logo" height={45} src={logo} width={45} />
       </LogoBox>
@@ -115,23 +117,24 @@ function LogIn() {
           <span>이메일로 가입하기</span>
         </AuthButton>
       </AuthButtonWrapper>
-    </Wrapper>
+    </Container>
   );
 }
 
 export default LogIn;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.Gray01};
-  padding: 0 7vw;
-  width: 100vw;
+  width: 100%;
   height: 100%;
+  padding: 0 1.625rem;
 `;
 
 const LogoBox = styled.div`
-  padding-top: 2rem;
+  padding-top: 4.625rem;
+  width: 100%;
 `;
 
 const Description = styled.div`
@@ -139,6 +142,7 @@ const Description = styled.div`
   font-size: 2rem;
   font-weight: ${(props) => props.theme.fontWeights.light};
   padding-top: 2rem;
+  width: 100%;
 `;
 
 const Bold = styled.span`
@@ -149,6 +153,7 @@ const LogInFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 3rem;
+  width: 100%;
 `;
 
 const InputFeild = styled.input`
