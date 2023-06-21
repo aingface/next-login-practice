@@ -94,6 +94,7 @@ const InputField = styled.input<InputFieldProps>`
   border-radius: 6px;
   width: 100%;
   background-color: ${(props) => props.theme.colors.White};
+  outline-color: ${(props) => props.theme.colors.PrimaryPurple09};
 `;
 
 const EmailSelect = styled.select`
@@ -102,6 +103,7 @@ const EmailSelect = styled.select`
   border: 1px solid ${(props) => props.theme.colors.Gray02};
   border-radius: 6px;
   background-color: ${(props) => props.theme.colors.White};
+  outline-color: ${(props) => props.theme.colors.PrimaryPurple09};
 `;
 
 const Text = styled.span<TextProps>`
