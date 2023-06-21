@@ -1,8 +1,9 @@
 import logo from '@assets/logos/logo.png';
 import NavigationBar from '@components/UIKit/NavigationBar';
+import jwtStore from '@store/jwtStore';
 import { themes } from '@styles/themes';
 import axios from 'axios';
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, useEffect, useState } from 'react';
@@ -19,6 +20,8 @@ function LogIn() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [cookies, setCookie, removeCookie] = useCookies();
+
+  const { jwt, setJwt } = jwtStore();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -53,16 +56,17 @@ function LogIn() {
     try {
       const result = await axios.post('http://localhost:3333/login', inputValue);
 
+      const token = result.data.accessToken;
+
+      // const verified = jwt.verify(token, 'blue_ant');
+      setJwt(token);
+      setCookie('verified-accessToken', token, { path: '/' });
+
       if (result.data.accessToken) {
         setIsLoggedIn(true);
       }
-      const token = result.data.accessToken;
-      const verified = jwt.verify(token, 'blue_ant');
-      setCookie('verified-accessToken', verified, { path: '/' });
-
-      console.log('사라랄');
     } catch (error) {
-      // console.log('🔥🔥🔥', error);
+      console.log('🔥에러🔥', error);
     }
   };
 
