@@ -117,4 +117,5 @@ const InputField = styled.input<InputFieldProps>`
   border-radius: 6px;
   width: 100%;
   background-color: ${(props) => props.theme.colors.White};
+  outline-color: ${(props) => props.theme.colors.PrimaryPurple09};
 `;
