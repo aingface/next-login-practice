@@ -52,17 +52,13 @@ function LogIn() {
 
     try {
       const result = await axios.post('http://localhost:3333/login', inputValue);
-      console.log(result);
 
-      const token = result.data.accessToken;
-
-      const verified = jwt.verify(token, 'blue_ant');
-
-      setCookie('verified-accessToken', verified, { path: '/' });
-
-      if (result.status == 200) {
+      if (result.data.accessToken) {
         setIsLoggedIn(true);
       }
+      const token = result.data.accessToken;
+      const verified = jwt.verify(token, 'blue_ant');
+      setCookie('verified-accessToken', verified, { path: '/' });
     } catch (error) {
       // console.log('🔥🔥🔥', error);
     }
