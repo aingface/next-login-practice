@@ -1,10 +1,10 @@
 import eyeOff from '@assets/icons/icon_eye_off_fill.png';
 import eyeOn from '@assets/icons/icon_eye_on_fill.png';
 import { themes } from '@styles/themes';
+import { validatePassword } from '@utils';
 import Image from 'next/image';
 import { useState } from 'react';
 import styled from 'styled-components';
-
 interface TextProps {
   fontWeight?: number | string;
   color?: string;
@@ -31,11 +31,6 @@ function PasswordInput({
   const [showPasswordRepeat, setShowPasswordRepeat] = useState<boolean>(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState<boolean>(false);
   const [isPasswordRepeatInvalid, setIsPasswordRepeatInvalid] = useState<boolean>(false);
-
-  const validatePassword = (targetPassword: string) => {
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&()])[A-Za-z\d@$!%*#?&()]{8,20}$/;
-    return regex.test(targetPassword);
-  };
 
   const handleOnChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
