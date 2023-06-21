@@ -5,9 +5,13 @@ import EmailInput from '@components/userInfoRegistration/EmailInput';
 import PasswordInput from '@components/userInfoRegistration/PasswordInput';
 import signInUserInfomationStore from '@store/signInUserInfomationStore';
 import { validateEmail, validatePassword } from '@utils';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 function UserInfoRegistration() {
+  const router = useRouter();
+
   const { year, month, day, setYear, setMonth, setDay } = signInUserInfomationStore();
   const { emailID, emailDomain, setEmailID, setEmailDomain } = signInUserInfomationStore();
   const { password, passwordRepeat, setPassword, setPasswordRepeat } = signInUserInfomationStore();
@@ -25,6 +29,23 @@ function UserInfoRegistration() {
       return true;
     }
     return false;
+  };
+
+  const handleOnClickRegister = async () => {
+    const registerValue = {
+      year: year,
+      month: month,
+      day: day,
+      email: emailID + '@' + emailDomain,
+      password: password,
+    };
+    try {
+      const { data } = await axios.post('http://localhost:3333/register', registerValue);
+
+      router.push('./login');
+    } catch (error) {
+      console.log('error:', error);
+    }
   };
 
   return (
@@ -53,7 +74,7 @@ function UserInfoRegistration() {
       <FooterButton
         isNextPageEnabled={checkRegisterValid()}
         title="가입하기"
-        onClickButton={() => {}}
+        onClickButton={handleOnClickRegister}
       />
     </Container>
   );
