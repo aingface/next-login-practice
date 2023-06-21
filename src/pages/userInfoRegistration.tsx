@@ -4,12 +4,28 @@ import BirthInput from '@components/userInfoRegistration/BirthInput';
 import EmailInput from '@components/userInfoRegistration/EmailInput';
 import PasswordInput from '@components/userInfoRegistration/PasswordInput';
 import signInUserInfomationStore from '@store/signInUserInfomationStore';
+import { validateEmail, validatePassword } from '@utils';
 import styled from 'styled-components';
 
 function UserInfoRegistration() {
   const { year, month, day, setYear, setMonth, setDay } = signInUserInfomationStore();
   const { emailID, emailDomain, setEmailID, setEmailDomain } = signInUserInfomationStore();
   const { password, passwordRepeat, setPassword, setPasswordRepeat } = signInUserInfomationStore();
+
+  const checkRegisterValid = () => {
+    const isYearValid = typeof year == 'number' && year > 0;
+    const isMonthValid = typeof month == 'number' && month > 0;
+    const isDayValid = typeof day == 'number' && day > 0;
+
+    const isEmailValid = validateEmail(emailID + '@' + emailDomain);
+    const isPasswordValid =
+      password !== undefined && validatePassword(password) && password === passwordRepeat;
+
+    if (isYearValid && isMonthValid && isDayValid && isEmailValid && isPasswordValid) {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <Container>
@@ -34,7 +50,11 @@ function UserInfoRegistration() {
         setPassword={setPassword}
         setPasswordRepeat={setPasswordRepeat}
       />
-      <FooterButton isNextPageEnabled={true} title="가입하기" onClickButton={() => {}} />
+      <FooterButton
+        isNextPageEnabled={checkRegisterValid()}
+        title="가입하기"
+        onClickButton={() => {}}
+      />
     </Container>
   );
 }
