@@ -21,11 +21,11 @@
 <br/>
 
 #### 정보입력 - 가입하기 버튼 비활성화된 경우
-<img width="340" alt="정보입력1 - 가입하기 버튼 비활성화" src="https://github.com/Blueant-dev/qoeocjf5-gmail.com/assets/40132591/d5efe46f-5374-421e-83ba-765bf7ea5a19">
+<img width="200" alt="정보입력1 - 가입하기 버튼 비활성화" src="https://github.com/Blueant-dev/qoeocjf5-gmail.com/assets/40132591/d5efe46f-5374-421e-83ba-765bf7ea5a19">
 
 #### 정보입력 - 가입하기 버튼 활성화된 경우
-<img width="339" alt="정보입력1 - 가입하기 버튼 활성화" src="https://github.com/Blueant-dev/qoeocjf5-gmail.com/assets/40132591/a0e38dff-42a2-4bb4-9a37-436da7963fae">
+<img width="200" alt="정보입력1 - 가입하기 버튼 활성화" src="https://github.com/Blueant-dev/qoeocjf5-gmail.com/assets/40132591/a0e38dff-42a2-4bb4-9a37-436da7963fae">
 
 #### 알림 - 미구현 
-<img width="339" alt="알림 1" src="https://github.com/Blueant-dev/qoeocjf5-gmail.com/assets/40132591/635fe451-ecc9-4d9d-a68e-1267d6ebc2c3">
+<img width="200" alt="알림 1" src="https://github.com/Blueant-dev/qoeocjf5-gmail.com/assets/40132591/635fe451-ecc9-4d9d-a68e-1267d6ebc2c3">
 
