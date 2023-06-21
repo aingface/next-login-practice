@@ -1,4 +1,4 @@
 export * from './getUsersDB';
 import { validateEmail } from './emailUtils';
-
-export { validateEmail };
+import { validatePassword } from './passwordUtils';
+export { validateEmail, validatePassword };
