@@ -48,6 +48,7 @@ const TitleWrapper = styled.div`
 const Title = styled.span`
   font-size: 1.2rem;
   font-family: Apple SD Gothic Neo, sans-serif;
+  font-weight: ${(props) => props.theme.fontWeights.bold};
   color: ${(props) => props.theme.colors.Black};
 `;
 
