@@ -162,14 +162,10 @@ const InputFeild = styled.input`
   padding: 1rem;
   border: 1px solid ${(props) => props.theme.colors.Gray02};
   border-radius: 6px;
+  outline-color: ${(props) => props.theme.colors.PrimaryPurple09};
 
   &::placeholder {
     color: ${(props) => props.theme.colors.Gray03};
-  }
-
-  &:focus {
-    border-color: ${(props) => props.theme.colors.PrimaryPurple09};
-    /* 다른 스타일도 추가적으로 지정할 수 있습니다 */
   }
 `;
 
