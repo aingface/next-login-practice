@@ -21,28 +21,69 @@
     "marketing": "주식회사 블루앤트는 올라케어 회원들께 더 나은 서비스를 제공하고자 광고·마케팅 목적의 개인정보 수집 및 이용에 대한 동의를 받고자 합니다. 내용을 자세히 읽으신 후, 동의를 원하시면 원래의 화면으로 돌아가 “동의”, “계속”, “동의하고 진행” 등 해당 화면의 안내에 따라 버튼을 눌러 주시기 바랍니다. 보다 자세한내용은 홈페이지에 게시된 개인정보처리방침을 참조하여 주시기 바랍니다.\n",
     "personal": "주식회사 블루앤트 (이하 “회사”)는 개인 민감정보보호법 제23조(민감정보 처리제한), 동법시행령 제 18조(민감정보 범위), 표준지침 제15조 (민감정보처리), 민감정보 정의, 종류, 동의사항 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 민감정보 처리제한 규정을 준수하며, 관련 법령에 의거한 개인민감정보취급방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다.\n"
   },
-  "notice": [
-    {
+  "notice": {
+    "nonFaceTreatment": {
+      "noticeTitle": "비대면 진료",
+      "noticeDate": "2022.06.23",
+      "noticeDetailItems": [
+        {
+          "content": "비대면 진료 후 진료확인을 눌러주세요.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        },
+        {
+          "content": "진료비 90,000원이 결제되었습니다.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        },
+        {
+          "content": "진료가 도착하면 진료에 맞춰 복용해 주세요.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        },
+        {
+          "content": "진료비 90,000원이 청구되었습니다. 5분 후 자동으로 진료비가 결제될 예정입니다.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        }
+      ]
+    },
+
+    "psychologicalCounseling": {
+      "noticeTitle": "심리 상담",
+      "noticeDate": "2022.06.23",
+      "noticeDetailItems": [
+        {
+          "content": "심리상담 후 심리상담 확인을 눌러주세요.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        },
+        {
+          "content": "심리상담비 20,000원이 결제되었습니다.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        },
+        {
+          "content": "심리상담이 끝나면 심리상담에 맞춰 주세요.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        },
+        {
+          "content": "심리 상담비 20,000원이 청구되었습니다. 5분 후 자동으로 심리상담비가 결제될 예정입니다.",
+          "createDetailNoticeDate": "2022.06.23 16:50"
+        }
+      ]
+    },
+    "community": {
       "noticeTitle": "일상 커뮤니티",
       "noticeDate": "2022.06.23",
       "noticeDetailItems": [
         {
-          "content": "약 수령 후 수령확인을 눌러주세요.",
+          "content": "커뮤니티 수령 후 수령확인을 눌러주세요.",
           "createDetailNoticeDate": "2022.06.23 16:50"
         },
         {
-          "content": "약제비 90,000원이 결제되었습니다.",
+          "content": "커뮤니티 비 90,000원이 결제되었습니다.",
           "createDetailNoticeDate": "2022.06.23 16:50"
         },
         {
-          "content": "약이 도착하면 복약지도에 맞춰 복용해 주세요.",
-          "createDetailNoticeDate": "2022.06.23 16:50"
-        },
-        {
-          "content": "약제비 90,000원이 청구되었습니다. 5분 후 자동으로 약제비가 결제될 예정입니다.",
+          "content": "커뮤니티가 도착하면 커뮤니티에 맞춰 주세요.",
           "createDetailNoticeDate": "2022.06.23 16:50"
         }
       ]
     }
-  ]
+  }
 }
