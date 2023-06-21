@@ -1,4 +1,6 @@
 import 'styles/global.scss';
+import '../../styles.css';
+import 'tailwindcss/tailwind.css';
 
 import { themes } from '@styles/themes';
 import { AppProps } from 'next/app';
