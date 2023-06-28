@@ -6,7 +6,7 @@ import NavigationBar from '@components/UIKit/NavigationBar';
 import RequiredOrOption from '@components/UIKit/RequiredOrOption';
 import termsAndConditionsAgreeStore from '@store/termsAndConditionsAgreeStore';
 import termsAndConditionsStore from '@store/termsAndConditionsSore';
-import { checkIsAgreeAll } from '@utils';
+import { checkIsAgreeAll, checkIsRequiredConditionsMet } from '@utils';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -99,12 +99,11 @@ function TermsAndConditions() {
     toggleIsMarketingAgree();
   };
 
-  const isRequiredConditionsMet = () => {
-    if (isPolicyAgree && isLocationAgree && isPrivacyAgree) {
-      return true;
-    }
-    return false;
-  };
+  const isRequiredConditionsMet = checkIsRequiredConditionsMet(
+    isPolicyAgree,
+    isPrivacyAgree,
+    isLocationAgree,
+  );
 
   const checkCircleSwitch = () => {
     if (isAgreeAll) {
@@ -173,7 +172,7 @@ function TermsAndConditions() {
         />
       </DisclosureWrapper>
       <FooterButton
-        isNextPageEnabled={isRequiredConditionsMet()}
+        isNextPageEnabled={isRequiredConditionsMet}
         title="확인하기"
         onClickButton={handleOnClickNext}
       />

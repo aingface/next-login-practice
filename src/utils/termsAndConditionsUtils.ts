@@ -10,3 +10,14 @@ export const checkIsAgreeAll = (
   }
   return false;
 };
+
+export const checkIsRequiredConditionsMet = (
+  isPolicyAgree: boolean,
+  isLocationAgree: boolean,
+  isPrivacyAgree: boolean,
+) => {
+  if (isPolicyAgree && isLocationAgree && isPrivacyAgree) {
+    return true;
+  }
+  return false;
+};
