@@ -1,4 +1,5 @@
 import { themes } from '@styles/themes';
+import { formatDate } from '@utils';
 import styled from 'styled-components';
 
 interface InputFieldProps {
@@ -27,36 +28,16 @@ function BirthInput({
   setMonth = () => {},
   setDay = () => {},
 }: BirthInputProps) {
-  const handleOnChangeYear = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const yearInputValue = event.target.value;
-    const formattedYearValue = Number(yearInputValue.slice(0, 4));
+  const handleOnChangeBirthDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const dateString = event.target.value;
 
-    if (formattedYearValue === 0) {
-      setYear(undefined);
-    } else {
-      setYear(formattedYearValue);
-    }
+    const [inputYear, inputMonth, inputDate] = dateString.split('-').map((item) => Number(item));
+    setYear(inputYear);
+    setMonth(inputMonth);
+    setDay(inputDate);
   };
-  const handleOnChangeMonth = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const monthInputValue = event.target.value;
-    const formattedMonthValue = Number(monthInputValue.slice(0, 2));
 
-    if (formattedMonthValue === 0) {
-      setMonth(undefined);
-    } else {
-      setMonth(formattedMonthValue);
-    }
-  };
-  const handleOnChangeDay = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const dayInputValue = event.target.value;
-    const formattedDayValue = Number(dayInputValue.slice(0, 2));
-
-    if (formattedDayValue === 0) {
-      setDay(undefined);
-    } else {
-      setDay(formattedDayValue);
-    }
-  };
+  const FormattedBirthDate = formatDate(year, month, day);
 
   return (
     <BirthWrapper>
@@ -64,25 +45,10 @@ function BirthInput({
       <BirthInputFieldWrapper>
         <InputField
           flex={4}
-          max={9999}
-          placeholder="YYYY"
-          type="number"
-          value={year}
-          onChange={handleOnChangeYear}
-        />
-        <InputField
-          flex={3}
-          placeholder="MM"
-          type="number"
-          value={month}
-          onChange={handleOnChangeMonth}
-        />
-        <InputField
-          flex={3}
-          placeholder="DD"
-          type="number"
-          value={day}
-          onChange={handleOnChangeDay}
+          placeholder="YYYY-MM-DD"
+          type="date"
+          value={FormattedBirthDate}
+          onChange={handleOnChangeBirthDate}
         />
       </BirthInputFieldWrapper>
     </BirthWrapper>
