@@ -79,15 +79,11 @@ function LogIn() {
 
   return (
     <Container>
-      <NavigationBar isBorderBottom={false} />
-      <LogoBox>
-        <Image alt="My logo" height={45} src={logo} width={45} />
-      </LogoBox>
       <Description>
         <span>
-          올라케어의 특별한 <br />
-          <Bold>올인원 건강관리</Bold>를<br />
-          경험해 보세요!
+          직접구현한 <br />
+          <Bold>로그인</Bold>을<br />
+          이용해 보세요<Bold>.</Bold>
         </span>
       </Description>
       <LogInFormWrapper>
@@ -136,17 +132,14 @@ const Container = styled.div`
   padding: 0 1.625rem;
 `;
 
-const LogoBox = styled.div`
-  padding-top: 4.625rem;
-  width: 100%;
-`;
-
 const Description = styled.div`
   font-family: Apple SD Gothic Neo, sans-serif;
   font-size: 2rem;
   font-weight: ${(props) => props.theme.fontWeights.light};
   padding-top: 2rem;
   width: 100%;
+
+  margin-top: 7rem;
 `;
 
 const Bold = styled.span`
