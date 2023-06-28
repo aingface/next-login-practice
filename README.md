@@ -1,5 +1,3 @@
-## 블루앤트 프론트엔드 사전과제 
-
 ## 로그인
 ### 로그인 초기화면, 입력한 이메일 형식이 맞지 않을 경우, 입력한 로그인 정보가 일치하지 않을 경우   
 <img width="500" alt="로그인초기" src="https://github.com/aingface/next-login-practice/assets/40132591/022e7bb4-734c-4a98-a7d3-c988a3418b99">
