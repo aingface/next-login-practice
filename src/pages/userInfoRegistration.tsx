@@ -4,7 +4,7 @@ import BirthInput from '@components/userInfoRegistration/BirthInput';
 import EmailInput from '@components/userInfoRegistration/EmailInput';
 import PasswordInput from '@components/userInfoRegistration/PasswordInput';
 import signInUserInfomationStore from '@store/signInUserInfomationStore';
-import { validateEmail, validatePassword } from '@utils';
+import { checkIsRegisterValuesValid, validateEmail, validatePassword } from '@utils';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
@@ -16,20 +16,20 @@ function UserInfoRegistration() {
   const { email, setEmail } = signInUserInfomationStore();
   const { password, passwordRepeat, setPassword, setPasswordRepeat } = signInUserInfomationStore();
 
-  const checkRegisterValid = () => {
-    const isYearValid = typeof year == 'number' && year > 0;
-    const isMonthValid = typeof month == 'number' && month > 0;
-    const isDayValid = typeof day == 'number' && day > 0;
+  const isYearValid = typeof year == 'number' && year > 0;
+  const isMonthValid = typeof month == 'number' && month > 0;
+  const isDayValid = typeof day == 'number' && day > 0;
+  const isEmailValid = validateEmail(email);
+  const isPasswordValid =
+    password !== undefined && validatePassword(password) && password === passwordRepeat;
 
-    const isEmailValid = validateEmail(email);
-    const isPasswordValid =
-      password !== undefined && validatePassword(password) && password === passwordRepeat;
-
-    if (isYearValid && isMonthValid && isDayValid && isEmailValid && isPasswordValid) {
-      return true;
-    }
-    return false;
-  };
+  const isRegisterValuesValid = checkIsRegisterValuesValid(
+    isYearValid,
+    isMonthValid,
+    isDayValid,
+    isEmailValid,
+    isPasswordValid,
+  );
 
   const handleOnClickRegister = async () => {
     const registerValue = {
@@ -59,7 +59,7 @@ function UserInfoRegistration() {
         setYear={setYear}
         year={year}
       />
-      <EmailInput email={email} setEmail={setEmail} />
+      <EmailInput email={email} isEmailValid={isEmailValid} setEmail={setEmail} />
       <PasswordInput
         password={password}
         passwordRepeat={passwordRepeat}
@@ -67,7 +67,7 @@ function UserInfoRegistration() {
         setPasswordRepeat={setPasswordRepeat}
       />
       <FooterButton
-        isNextPageEnabled={checkRegisterValid()}
+        isNextPageEnabled={isRegisterValuesValid}
         title="가입하기"
         onClickButton={handleOnClickRegister}
       />

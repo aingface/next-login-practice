@@ -11,11 +11,24 @@ interface TextProps {
 interface EmailInputProps {
   email: string | undefined;
   setEmail: (emailDomainInput: string) => void;
+  isEmailValid: boolean | undefined;
 }
 
-function EmailInput({ email = '', setEmail = () => {} }: EmailInputProps) {
+function EmailInput({
+  email = '',
+  setEmail = () => {},
+  isEmailValid = undefined,
+}: EmailInputProps) {
   const handleEmailInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
+  };
+
+  const renderIsEmailValid = () => {
+    if (isEmailValid === undefined || email.length <= 0) {
+      return <></>;
+    }
+
+    return <Text color={themes.colors.Red}>{'비밀번호가 일치하지 않습니다.'}</Text>;
   };
 
   return (
@@ -28,6 +41,7 @@ function EmailInput({ email = '', setEmail = () => {} }: EmailInputProps) {
           value={email}
           onChange={handleEmailInputChange}
         />
+        {renderIsEmailValid()}
       </EmailInputFieldWrapper>
     </EmailWrapper>
   );

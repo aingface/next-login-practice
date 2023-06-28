@@ -1,9 +1,12 @@
 // export * from './getUsersDB';
 import { formatDate } from './birthInputUtils';
-import { validateEmail } from './emailUtils';
-import { validatePassword } from './passwordInputUtils';
 import { checkIsAgreeAll, checkIsRequiredConditionsMet } from './termsAndConditionsUtils';
+import {
+  checkIsRegisterValuesValid,
+  validateEmail,
+  validatePassword,
+} from './userInfoRegistrationUtils';
 
 export { checkIsAgreeAll, checkIsRequiredConditionsMet };
-export { validateEmail, validatePassword };
+export { checkIsRegisterValuesValid, validateEmail, validatePassword };
 export { formatDate };
