@@ -1,8 +1,8 @@
 // export * from './getUsersDB';
+import { formatDate } from './birthInputUtils';
 import { validateEmail } from './emailUtils';
-import { validatePassword } from './passwordUtils';
+import { validatePassword } from './passwordInputUtils';
 import { checkIsAgreeAll, checkIsRequiredConditionsMet } from './termsAndConditionsUtils';
-import { formatDate } from './userInfoRegistrationUtils';
 
 export { checkIsAgreeAll, checkIsRequiredConditionsMet, validateEmail, validatePassword };
 export { formatDate };
