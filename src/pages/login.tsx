@@ -15,8 +15,9 @@ function LogIn() {
   const [emailInput, setEmailInput] = useState<string>('');
   const [passwordInput, setPasswordInput] = useState<string>('');
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(true);
   const [cookies, setCookie, removeCookie] = useCookies();
+  const [isLogginInfoError, setIsLogginInfoError] = useState<boolean>(false);
 
   const { jwt, setJwt } = jwtStore();
 
@@ -64,12 +65,20 @@ function LogIn() {
       }
     } catch (error) {
       console.log('🔥에러🔥', error);
+      setIsLogginInfoError(true);
     }
   };
 
-  const errorMessage = () => {
+  const emailInputErrorMessage = () => {
     if (emailInput && !isEmailValid) {
       return <ErrorMessage>이메일 형식이 맞지 않습니다.</ErrorMessage>;
+    }
+    return <div></div>;
+  };
+
+  const LogInInfoErrorMessage = () => {
+    if (isLogginInfoError && emailInput.length > 0 && passwordInput.length > 0) {
+      return <ErrorMessage>이메일 혹은 아이디 정보가 틀립니다.</ErrorMessage>;
     }
     return <div></div>;
   };
@@ -96,7 +105,8 @@ function LogIn() {
           value={passwordInput}
           onChange={handlePassWordInputChange}
         />
-        {errorMessage()}
+        {emailInputErrorMessage()}
+        {LogInInfoErrorMessage()}
       </LogInFormWrapper>
       <AuthButtonWrapper>
         <AuthButton
