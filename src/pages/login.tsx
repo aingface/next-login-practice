@@ -1,12 +1,9 @@
-import logo from '@assets/logos/logo.png';
-import NavigationBar from '@components/UIKit/NavigationBar';
 import jwtStore from '@store/jwtStore';
 import { themes } from '@styles/themes';
 import axios from 'axios';
 // import jwt from 'jsonwebtoken';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
 interface AuthButtonProps {
