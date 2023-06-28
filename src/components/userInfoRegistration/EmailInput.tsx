@@ -6,6 +6,7 @@ interface InputFieldProps {
 
 interface TextProps {
   fontWeight?: number | string;
+  color?: string;
 }
 
 interface EmailInputProps {
@@ -25,10 +26,12 @@ function EmailInput({
 
   const renderIsEmailValid = () => {
     if (isEmailValid === undefined || email.length <= 0) {
-      return <></>;
+      return <Text color={themes.colors.Black01}>{'이메일을 입력해주세요'}</Text>;
+    } else if (isEmailValid === true) {
+      return <Text color={themes.colors.PrimaryPurple09}>{'이메일 형식이 올바릅니다.'}</Text>;
     }
 
-    return <Text color={themes.colors.Red}>{'비밀번호가 일치하지 않습니다.'}</Text>;
+    return <Text color={themes.colors.Red}>{'이메일 형식이 맞지 않습니다.'}</Text>;
   };
 
   return (
@@ -54,13 +57,13 @@ const EmailWrapper = styled.div`
   width: 100%;
   padding: 2rem 1.625rem 0;
 `;
+
 const EmailInputFieldWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0.75rem;
   padding: 0.5rem 0;
   width: 100%;
-  align-items: center;
 `;
 
 const InputField = styled.input<InputFieldProps>`
@@ -77,4 +80,5 @@ const Text = styled.span<TextProps>`
   font-size: 1rem;
   font-weight: ${(props) => props.fontWeight};
   font-family: Apple SD Gothic Neo, sans-serif;
+  color: ${(props) => (props.color === undefined ? props.theme.colors.Black : props.color)};
 `;
