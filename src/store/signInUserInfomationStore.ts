@@ -5,8 +5,7 @@ interface signInUserInfomationState {
   month: number | undefined;
   day: number | undefined;
 
-  emailID: string | undefined;
-  emailDomain: string | undefined;
+  email: string | undefined;
 
   password: string | undefined;
   passwordRepeat: string | undefined;
@@ -14,8 +13,7 @@ interface signInUserInfomationState {
   setYear: (yearInput: number | undefined) => void;
   setMonth: (monthInput: number | undefined) => void;
   setDay: (dayInput: number | undefined) => void;
-  setEmailID: (emailIDInput: string) => void;
-  setEmailDomain: (emailDomainInput: string) => void;
+  setEmail: (emailIDInput: string) => void;
   setPassword: (passwordInput: string | undefined) => void;
   setPasswordRepeat: (passwordInput: string | undefined) => void;
 }
@@ -24,8 +22,7 @@ const signInUserInfomationStore = create<signInUserInfomationState>()((set) => (
   year: undefined,
   month: undefined,
   day: undefined,
-  emailID: undefined,
-  emailDomain: undefined,
+  email: undefined,
   password: undefined,
   passwordRepeat: undefined,
 
@@ -42,13 +39,9 @@ const signInUserInfomationStore = create<signInUserInfomationState>()((set) => (
       day: dayInput,
     })),
 
-  setEmailID: (emailIDInput: string) =>
+  setEmail: (emailInput: string) =>
     set(() => ({
-      emailID: emailIDInput,
-    })),
-  setEmailDomain: (emailDomainInput: string) =>
-    set(() => ({
-      emailDomain: emailDomainInput,
+      email: emailInput,
     })),
 
   setPassword: (passwordInput: string | undefined) =>

@@ -9,37 +9,14 @@ interface TextProps {
   fontWeight?: number | string;
 }
 
-interface Option {
-  value: string;
-  label: string;
-}
-
 interface EmailInputProps {
-  emailID: string | undefined;
-  emailDomain: string | undefined;
-  setEmailID: (emailIDInput: string) => void;
-  setEmailDomain: (emailDomainInput: string) => void;
+  email: string | undefined;
+  setEmail: (emailDomainInput: string) => void;
 }
 
-const options: Option[] = [
-  { value: 'gmail.com', label: 'gmail.com' },
-  { value: 'naver.com', label: 'naver.com' },
-  { value: 'daum.net', label: 'daum.net' },
-  { value: 'outlook.com', label: 'outlook.com' },
-];
-
-function EmailInput({
-  emailID = '',
-  emailDomain = '',
-  setEmailID = () => {},
-  setEmailDomain = () => {},
-}: EmailInputProps) {
-  const handleEmailIDChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmailID(event.target.value);
-  };
-
-  const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setEmailDomain(event.target.value);
+function EmailInput({ email = '', setEmail = () => {} }: EmailInputProps) {
+  const handleEmailInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
   };
 
   return (
@@ -47,25 +24,11 @@ function EmailInput({
       <Text fontWeight={themes.fontWeights.bold}>이메일</Text>
       <EmailInputFieldWrapper>
         <InputField
-          flex={1}
-          placeholder="이메일"
-          type="text"
-          value={emailID}
-          onChange={handleEmailIDChange}
+          placeholder="이메일 주소 입력"
+          type="email"
+          value={email}
+          onChange={handleEmailInputChange}
         />
-        <Text>{'@'}</Text>
-        <EmailSelect value={emailDomain} onChange={handleOptionChange}>
-          {[
-            <option key="placeholder" value="">
-              <Text>선택</Text>
-            </option>,
-            ...options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            )),
-          ]}
-        </EmailSelect>
       </EmailInputFieldWrapper>
     </EmailWrapper>
   );
@@ -93,15 +56,6 @@ const InputField = styled.input<InputFieldProps>`
   border: 1px solid ${(props) => props.theme.colors.Gray02};
   border-radius: 6px;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.White};
-  outline-color: ${(props) => props.theme.colors.PrimaryPurple09};
-`;
-
-const EmailSelect = styled.select`
-  flex: 1.582;
-  padding: 0.6875rem 1rem;
-  border: 1px solid ${(props) => props.theme.colors.Gray02};
-  border-radius: 6px;
   background-color: ${(props) => props.theme.colors.White};
   outline-color: ${(props) => props.theme.colors.PrimaryPurple09};
 `;

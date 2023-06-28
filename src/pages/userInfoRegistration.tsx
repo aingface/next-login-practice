@@ -13,7 +13,7 @@ function UserInfoRegistration() {
   const router = useRouter();
 
   const { year, month, day, setYear, setMonth, setDay } = signInUserInfomationStore();
-  const { emailID, emailDomain, setEmailID, setEmailDomain } = signInUserInfomationStore();
+  const { email, setEmail } = signInUserInfomationStore();
   const { password, passwordRepeat, setPassword, setPasswordRepeat } = signInUserInfomationStore();
 
   const checkRegisterValid = () => {
@@ -21,7 +21,7 @@ function UserInfoRegistration() {
     const isMonthValid = typeof month == 'number' && month > 0;
     const isDayValid = typeof day == 'number' && day > 0;
 
-    const isEmailValid = validateEmail(emailID + '@' + emailDomain);
+    const isEmailValid = validateEmail(email);
     const isPasswordValid =
       password !== undefined && validatePassword(password) && password === passwordRepeat;
 
@@ -36,7 +36,7 @@ function UserInfoRegistration() {
       year: year,
       month: month,
       day: day,
-      email: emailID + '@' + emailDomain,
+      email: email,
       password: password,
     };
     try {
@@ -59,12 +59,7 @@ function UserInfoRegistration() {
         setYear={setYear}
         year={year}
       />
-      <EmailInput
-        emailDomain={emailDomain}
-        emailID={emailID}
-        setEmailDomain={setEmailDomain}
-        setEmailID={setEmailID}
-      />
+      <EmailInput email={email} setEmail={setEmail} />
       <PasswordInput
         password={password}
         passwordRepeat={passwordRepeat}
