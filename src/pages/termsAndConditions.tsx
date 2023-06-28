@@ -21,6 +21,19 @@ const disclosureStyle = {
   padding: '0 1.625rem',
 };
 
+const checkIsAgreeAll = (
+  isPolicyAgree: boolean,
+  isLocationAgree: boolean,
+  isPrivacyAgree: boolean,
+  isMarketingAgree: boolean,
+  isPersonalAgree: boolean,
+): boolean => {
+  if (isPolicyAgree && isLocationAgree && isPrivacyAgree && isMarketingAgree && isPersonalAgree) {
+    return true;
+  }
+  return false;
+};
+
 function TermsAndConditions() {
   const router = useRouter();
 
@@ -36,7 +49,6 @@ function TermsAndConditions() {
     isPrivacyAgree,
     isMarketingAgree,
     isPersonalAgree,
-    isAgreeAll,
 
     toggleIsPolicyAgree,
     toggleIsPrivacyAgree,
@@ -46,8 +58,15 @@ function TermsAndConditions() {
 
     setAgreeAll,
     setDisagreeAll,
-    toggleIsAgreeAll,
   } = termsAndConditionsAgreeStore();
+
+  const isAgreeAll = checkIsAgreeAll(
+    isPolicyAgree,
+    isLocationAgree,
+    isPrivacyAgree,
+    isMarketingAgree,
+    isPersonalAgree,
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,11 +91,8 @@ function TermsAndConditions() {
   const handleOnClickAgreeAll = () => {
     if (!isAgreeAll) {
       setAgreeAll();
-      toggleIsAgreeAll();
     } else {
       setDisagreeAll();
-
-      toggleIsAgreeAll();
     }
   };
 

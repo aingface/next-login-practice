@@ -6,8 +6,6 @@ interface termsAndConditionsAgreeState {
   isPersonalAgree: boolean;
   isMarketingAgree: boolean;
 
-  isAgreeAll: boolean;
-
   toggleIsPolicyAgree: () => void;
   toggleIsPrivacyAgree: () => void;
   toggleIsLocationAgree: () => void;
@@ -16,7 +14,6 @@ interface termsAndConditionsAgreeState {
 
   setAgreeAll: () => void;
   setDisagreeAll: () => void;
-  toggleIsAgreeAll: () => void;
 }
 
 const termsAndConditionsAgreeStore = create<termsAndConditionsAgreeState>()((set) => ({
@@ -43,11 +40,6 @@ const termsAndConditionsAgreeStore = create<termsAndConditionsAgreeState>()((set
       isPrivacyAgree: false,
       isMarketingAgree: false,
       isPersonalAgree: false,
-    })),
-
-  toggleIsAgreeAll: () =>
-    set((state) => ({
-      isAgreeAll: !state.isAgreeAll,
     })),
 
   toggleIsPolicyAgree: () =>
