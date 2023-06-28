@@ -1,5 +1,4 @@
 import { themes } from '@styles/themes';
-import { useState } from 'react';
 import styled from 'styled-components';
 interface InputFieldProps {
   flex?: number;
