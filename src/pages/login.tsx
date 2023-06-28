@@ -1,12 +1,9 @@
-import logo from '@assets/logos/logo.png';
-import NavigationBar from '@components/UIKit/NavigationBar';
 import jwtStore from '@store/jwtStore';
 import { themes } from '@styles/themes';
 import axios from 'axios';
 // import jwt from 'jsonwebtoken';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
 interface AuthButtonProps {
@@ -79,15 +76,12 @@ function LogIn() {
 
   return (
     <Container>
-      <NavigationBar isBorderBottom={false} />
-      <LogoBox>
-        <Image alt="My logo" height={45} src={logo} width={45} />
-      </LogoBox>
       <Description>
         <span>
-          올라케어의 특별한 <br />
-          <Bold>올인원 건강관리</Bold>를<br />
-          경험해 보세요!
+          직접
+          <br />
+          <Bold>로그인</Bold>을<br />
+          구현해봅시다
         </span>
       </Description>
       <LogInFormWrapper>
@@ -136,17 +130,13 @@ const Container = styled.div`
   padding: 0 1.625rem;
 `;
 
-const LogoBox = styled.div`
-  padding-top: 4.625rem;
-  width: 100%;
-`;
-
 const Description = styled.div`
   font-family: Apple SD Gothic Neo, sans-serif;
   font-size: 2rem;
   font-weight: ${(props) => props.theme.fontWeights.light};
   padding-top: 2rem;
   width: 100%;
+  margin-top: 8rem;
 `;
 
 const Bold = styled.span`

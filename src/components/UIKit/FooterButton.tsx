@@ -31,8 +31,7 @@ export default FooterButton;
 
 const Container = styled.div`
   padding: 0 1.625rem 3.125rem;
-  /* margin-top: 0.7rem; */
-
+  background-color: ${(props) => props.theme.colors.Gray01};
   position: fixed;
   bottom: 0;
   width: 100%;
