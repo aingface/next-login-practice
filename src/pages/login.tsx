@@ -1,7 +1,8 @@
+// import jwt from 'jsonwebtoken';
+import isLoggedInStore from '@store/isLoggedInStore';
 import jwtStore from '@store/jwtStore';
 import { themes } from '@styles/themes';
 import axios from 'axios';
-// import jwt from 'jsonwebtoken';
 import { useRouter } from 'next/router';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -14,10 +15,11 @@ function LogIn() {
   const router = useRouter();
   const [emailInput, setEmailInput] = useState<string>('');
   const [passwordInput, setPasswordInput] = useState<string>('');
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = useState<boolean>(true);
   const [cookies, setCookie, removeCookie] = useCookies();
   const [isLogginInfoError, setIsLogginInfoError] = useState<boolean>(false);
+
+  const { isLoggedIn, setIsLoggedIn } = isLoggedInStore();
 
   const { jwt, setJwt } = jwtStore();
 
@@ -26,6 +28,11 @@ function LogIn() {
       router.push('./notice');
     }
   }, [isLoggedIn]);
+
+  if (!isLoggedIn && router.pathname === '/notice') {
+    router.push('/login');
+    return null;
+  }
 
   const validateEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
