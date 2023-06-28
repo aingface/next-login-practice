@@ -6,32 +6,19 @@ import NavigationBar from '@components/UIKit/NavigationBar';
 import RequiredOrOption from '@components/UIKit/RequiredOrOption';
 import termsAndConditionsAgreeStore from '@store/termsAndConditionsAgreeStore';
 import termsAndConditionsStore from '@store/termsAndConditionsSore';
+import { checkIsAgreeAll } from '@utils';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
 interface AgreeAllButtonProps {
   isAgreeAll: boolean;
 }
 
 const disclosureStyle = {
-  // display: 'flex',
-  // justifyContent: 'center',
   padding: '0 1.625rem',
-};
-
-const checkIsAgreeAll = (
-  isPolicyAgree: boolean,
-  isLocationAgree: boolean,
-  isPrivacyAgree: boolean,
-  isMarketingAgree: boolean,
-  isPersonalAgree: boolean,
-): boolean => {
-  if (isPolicyAgree && isLocationAgree && isPrivacyAgree && isMarketingAgree && isPersonalAgree) {
-    return true;
-  }
-  return false;
 };
 
 function TermsAndConditions() {

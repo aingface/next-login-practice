@@ -1,5 +1,5 @@
 // export * from './getUsersDB';
 import { validateEmail } from './emailUtils';
 import { validatePassword } from './passwordUtils';
-
-export { validateEmail, validatePassword };
+import { checkIsAgreeAll } from './termsAndConditionsUtils';
+export { checkIsAgreeAll, validateEmail, validatePassword };
